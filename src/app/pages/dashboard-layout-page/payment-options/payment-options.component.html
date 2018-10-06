@@ -1,0 +1,201 @@
+
+<section id="text-alignment">
+      <div class="form-group">
+          <div class="col-md-12">
+              <label *ngIf="errorMessage" class="error">{{ errorMessage}}</label>
+              <label *ngIf="successMessage" class="success">{{ successMessage}}</label>
+    
+          </div>
+      </div>
+    <div class="row">
+      <div class="col-12 mt-3 mb-1">
+        <div class="content-header">Choose your preferred payment method:</div>
+      </div>
+    </div>
+    <div class="row justify-content-center">  
+      <div class="col-lg-4 col-md-12">
+        <div class="card text-center">
+          <div class="card-body">
+            <a onclick="$('#mobile-money').show(); $('#bank').hide()">
+            <div class="card-block">
+              <i class="fa fa-mobile font-large-3"></i><br/><br/>
+              <p>Mobile Money</p>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-lg-4 col-md-12">
+        <div class="card text-center">
+          <div class="card-body">
+            <a onclick="$('#mobile-money').hide(); $('#bank').show()">
+            <div class="card-block">
+              <i class="fa fa-bank font-large-3"></i><br/><br/>
+              <p>Bank</p>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section id="bank" style="display:none;">
+    <div class="row">
+          <div class="col-sm-12">
+              <div class="content-header">Fill in your Bank Details:</div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="px-3">
+                        <form  #bankForm="ngForm" class="form form-horizontal" (submit)="payForMySubscription(bankForm.value)">
+                          <div class="form-body">
+  
+                            <label class="col-md-3 label-control" for="projectinput1">Account Name: </label>  
+                            <div class="form-group row">
+                                <div class="col-md-9">
+                                  <input type="text" ngModel #fullName="ngModel" name="fullName" id="projectinput1" class="form-control" required>
+                                  <input type="hidden" ngModel #method="ngModel" name="method" value="Bank Account">
+                                </div>
+                            </div>
+
+                            <label class="col-md-3 label-control" for="projectinput2">Amount: </label>
+                            <div class="form-group row">
+                                <div class="col-md-9">
+                                  <input type="text" ngModel #amount="ngModel" name="amount" id="projectinput2" class="form-control" required>
+                                </div>
+                            </div>
+  
+                            <label class="col-md-3 label-control" for="projectinput2">Account Number: </label>
+                            <div class="form-group row">
+                                <div class="col-md-9">
+                                  <input type="text" ngModel #accNumber="ngModel" name="accNumber" id="projectinput2" class="form-control" required>
+                                </div>
+                            </div>
+  
+                            <label class="col-md-3 label-control" for="projectinput3">Bank Name: </label>
+                            <div class="form-group row">                              
+                                <div class="col-md-9">
+                                  <input type="text" ngModel #provider="ngModel" name="provider" id="projectinput3" class="form-control"  required>
+                                </div>
+                            </div>
+  
+                            <label class="col-md-3 label-control" for="projectinput3">Branch: </label>
+                            <div class="form-group row">                              
+                                <div class="col-md-9">
+                                  <input type="text" ngModel #bankBranch="ngModel" name="bankBranch" id="projectinput3" class="form-control"  required>
+                                </div>
+                            </div>
+                          </div>
+  
+                            <div class="form-actions text-right">
+                                <button type="submit" class="btn btn-raised btn-primary">
+                                    <i></i> Pay
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+<section id="mobile-money" style="display:none;">
+  <form #mobileForm="ngForm" class="form form-horizontal" (submit)="payForMySubscription(mobileForm.value)">
+    <div class="row" matchHeight="card">
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="px-3 py-3">
+              <div class="media justify-content-center">
+                <div class="media-right align-self-center">
+                <input type="hidden" ngModel #method="ngModel" name="method" value="Mobile Money">
+                <input type="radio" ngModel #provider="ngModel" name="provider" value="airtel" class="form-control" ><img src="assets/img/logos/airtel-moeny.png" width="100px" height="100px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="px-3 py-3">
+              <div class="media justify-content-center">
+                <div class="media-right align-self-center">
+                  <input type="radio" ngModel #provider="ngModel" name="provider" value="mpesa"><img src="assets/img/logos/m-pesa-938.jpg" width="100px" height="100px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="px-3 py-3">
+              <div class="media justify-content-center">
+                <div class="media-right align-self-center">
+                  <input type="radio" ngModel #provider="ngModel" name="provider" value="mtn"><img src="assets/img/logos/mtn.png" width="100px" height="100px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="px-3 py-3"> 
+              <div class="media justify-content-center">
+                <div class="media-right align-self-center">
+                  <br/><input type="radio" ngModel #provider="ngModel" name="provider" value="tigo"><img src="assets/img/logos/tigo.png" width="100px" height="75px">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" matchHeight="card">
+    <div class="card-body">
+        <div class="px-3">
+              <div class="form-body">
+
+                <label class="col-md-3 label-control" for="projectinput1">Official Names: </label>  
+                <div class="form-group row">
+                    <div class="col-md-9">
+                      <input type="text" ngModel #fullName="ngModel" name="fullName" class="form-control" required>
+                    </div>
+                </div>
+
+                <label class="col-md-3 label-control" for="projectinput2">Phone Number: </label>
+                <div class="form-group row">
+                    <div class="col-md-9">
+                      <input type="text"   ngModel #phone="ngModel" name="phone" class="form-control" required>
+                    </div>
+                </div>
+                
+                <label class="col-md-3 label-control" for="projectinput3">Amount: </label>
+                <div class="form-group row">	                            
+                    <div class="col-md-9">
+                      <input type="text"  ngModel #amount="ngModel" name="amount" class="form-control"  required>
+                    </div>
+                </div>
+              </div>
+
+                <div class="form-actions text-right">
+                    <button type="submit" class="btn btn-raised btn-primary">
+                        <i></i> Save
+                    </button>
+                </div>
+        </div>
+    </div>
+    </div>
+  </form>
+</section>

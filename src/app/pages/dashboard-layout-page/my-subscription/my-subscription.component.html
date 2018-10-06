@@ -1,0 +1,64 @@
+<div class="row" matchHeight ="card">
+    <div class="col-md-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="card-block">
+                <br/>
+              <h4 class="card-text">1st Month Plan</h4>
+              <h2 class="card-text"> $0 </h2>
+              <p>Freemium</p>
+              <br/>
+              <br/>   
+              <a class="btn btn-floating  btn-medium bg-success"><i class="ft-check"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+        <div class="card-body">
+          <div class="card-block">
+              <br/>
+            <h4 class="card-text">1 Year Plan</h4>
+            <h2 class="card-text"> $ 25 pm</h2>
+            <p>Billed $300 Annually</p>
+          </div>
+          <div class="card-block">
+
+              <a  class="btn btn-raised btn-primary text-white" [routerLink]="['/dashboard/payment-options', 'annual','300']"> Select Plan</a>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="card-block">
+              <br/>
+              <h4 class="card-text"> 6 Months Plan</h4>
+              <h2 class="card-text"> $30 pm</h2>
+              <p>Billed $180 Biannually</p>
+          </div>
+          <div class="card-block">
+                  <a  class="btn btn-raised btn-primary text-white" [routerLink]="['/dashboard/payment-options', 'biannual','180']"> Select Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center">
+          <div class="card-body">
+              <div class="card-block">
+                  <br/>
+                  <h4 class="card-text"> Monthly Plan</h4>
+                  <h2 class="card-text"> $35 pm </h2>
+                  <p>Billed Per Month</p>
+              </div>
+              <div class="card-block">
+                      <a  class="btn btn-raised btn-primary text-white" [routerLink]="['/dashboard/payment-options', 'monthly', '35']"> Select Plan</a>
+              </div>
+            </div>
+      </div>
+    </div>
+  
+  

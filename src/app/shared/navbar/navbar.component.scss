@@ -1,0 +1,42 @@
+.navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+
+
+
+@media (min-width: 768px){
+    .navbar-expand-md .navbar-toggler {
+        display: none;
+    }
+}
+
+.p-3 {
+    padding: 1rem !important;
+}
+
+.navbar {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: #FFF;
+}
+
+.navbar .active {
+    border-bottom: 2px solid #d73a8a !important;
+}

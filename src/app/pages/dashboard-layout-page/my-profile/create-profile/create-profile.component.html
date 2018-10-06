@@ -1,0 +1,193 @@
+
+
+<section id="icon-tabs">
+    <!-- <div class="row">
+      <div class="col-md-6">
+      <div class="content-header">Company Profile</div>
+      <p class="content-sub-header">Update your profile with company details</p>
+    </div>
+      <div class="col-md-6">
+      </div>
+    </div> -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Company Profile</h4>
+                  <h5>Update your profile with company details</h5>
+                </div>
+              <div class="card-body">
+                <div class="card-block"><br/>
+                  <form class="icons-tab-steps wizard-circle" [formGroup]="companyForm" (submit)="createCompanyProfile()">
+                    <!-- Step 1 -->
+                    <fieldset id="tourstep1">
+                    <img src="assets/img/steps/overview.png" class="img-fluid mx-auto d-block"><br/><br/>
+                      
+                    <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text"  [formControl]="companyName" class="form-control" id="companyName">
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="category">Type of business</label><br/>
+                        <select [formControl]="category" class="custom-select form-control" id="category">
+                        <option value="Travel Agency">Travel Agency</option>
+                        <option value="Tour Operator">Tour Operator</option>
+                      </select>
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="description">Short description</label>
+                      <textarea [formControl]="description"  id="description" class="form-control"></textarea>
+                    </div>
+  
+                    <div class="form-group">
+                        <label for="description">Logo</label>
+                        <div *ngIf="currentUpload">
+                            <div class="progress">
+                              <div class="progress-bar progress-bar-animated" [ngStyle]="{ 'width': currentUpload?.progress + '%' }"></div><br>
+                            </div>
+                          <!-- Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete -->
+                          <span *ngIf="currentUpload.progress==100">Complete</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                              <input  type="file"  (change)="detectFiles($event)"><br/><br/>
+                              <button  class="btn btn-raised btn-info" [disabled]="!selectedFiles" (click)="uploadSingle()"> Upload Image</button>
+                              </div>
+  
+                              <div class="col-md-6">
+                                  <img *ngIf="logoUrl" (dblclick)="deleteThisPhoto()" class="rounded-circle mr-1 shadow-sm width-50 height-50 float-right" src="{{logoUrl}}">
+                              </div>
+                        </div>
+                        
+                      </div>
+  
+                    <div class="form-group text-right">
+                      <button type="button" [disabled]="companyName.invalid ||  category.invalid || description.invalid" class="btn btn-raised btn-success mr-1" onclick="$('#tourstep1').hide(); $('#tourstep2').show()">
+                        <i></i> Next
+                      </button>
+                    </div>
+  
+                    </fieldset>
+                    <!-- Step 2 -->
+                    
+                    <fieldset id="tourstep2" style="display: none;">
+                    <img src="assets/img/steps/legal.png" class="img-fluid mx-auto d-block"><br/><br/>
+  
+                        <div class="form-group">
+                          <label for="regNumber">Business Registration Number</label>
+                          <input type="text"  [formControl]="regNumber" class="form-control" id="regNumber">
+                        </div>
+                        <div class="form-group">
+                          <label for="membershipNumber">Association Membership Number</label>
+                          <input type="text"  [formControl]="membershipNumber" class="form-control" id="membershipNumber">
+                        </div>
+                        <div class="form-group">
+                          <label for="associationCategory">Association Membership Category</label>
+                          <input type="text"  [formControl]="associationCategory" class="form-control" id="associationCategory">
+                        </div>
+                        <div class="form-group text-right">
+                          <button type="button"  class="btn btn-raised btn-info mr-1" onclick="$('#tourstep2').hide(); $('#tourstep1').show()">
+                            <i></i> Previous
+                          </button>
+                          <button type="button" [disabled]="regNumber.invalid || membershipNumber.invalid || associationCategory.invalid" class="btn btn-raised btn-success mr-1" onclick="$('#tourstep2').hide(); $('#tourstep3').show()">
+                            <i></i> Next
+                          </button>
+                        </div>
+  
+                    </fieldset>
+                    <!-- Step 3 -->
+                    
+                    <fieldset id="tourstep3" style="display: none;">
+                    <img src="assets/img/steps/contact.png" class="img-fluid mx-auto d-block"><br/><br/>
+  
+                          <div class="form-group">
+                            <label for="phone">Telephone number</label>
+                            <input type="text" [formControl]="phone" class="form-control" id="phone">
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email Address</label>
+                          <input type="text"  [formControl]="email" class="form-control" id="email">
+                          </div>
+                          <div class="form-group">
+                            <label for="website">Website Address</label>
+                            <input type="text" [formControl]="website" class="form-control" id="website">
+                          </div>
+                          <div class="form-group text-right">
+                            <button type="button" class="btn btn-raised btn-info mr-1" onclick="$('#tourstep3').hide(); $('#tourstep2').show()">
+                              <i></i> Previous
+                            </button>
+                            <button type="button" [disabled]="phone.invalid || email.invalid || website.invalid" class="btn btn-raised btn-success mr-1" onclick="$('#tourstep3').hide(); $('#tourstep4').show()">
+                              <i></i> Next
+                            </button>
+                          </div>
+  
+                    </fieldset>
+                    <!-- Step 4 -->
+                    
+                    <fieldset id="tourstep4" style="display: none;">
+                    <img src="assets/img/steps/location.png" class="img-fluid mx-auto d-block"><br/><br/>
+  
+                          <div class="form-group">
+                            <label for="country"> Country </label><br/>
+                            <input type="text"  [formControl]="country" class="form-control" id="country">
+                          </div>
+        
+                          <div class="form-group">
+                              <label for="city">City</label>
+                              <input type="text" [formControl]="city" class="form-control" id="city">
+                            </div>
+        
+                          <div class="form-group">
+                            <label for="streetAddress">Street Address</label>
+                            <input type="text" [formControl]="streetAddress"  class="form-control" id="streetAddress">
+                          </div>
+  
+                          <div class="form-group text-right">
+                            <button type="button" class="btn btn-raised btn-info mr-1" onclick="$('#tourstep4').hide(); $('#tourstep3').show()">
+                              <i></i> Previous
+                            </button>
+                            <button type="submit" [disabled]="companyForm.invalid"  class="btn btn-raised btn-success mr-1">
+                              <i></i> Create Profile
+                            </button>
+                          </div>
+  
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Preview</h4>
+                  <h5>{{companyName.value}}</h5>
+                </div>
+                <div class="card-body">
+                    <div class="card-img">
+                        <img *ngIf="logoUrl"class="card-img-top img-fluid" [src]="logoUrl" alt="{{companyName.value}}">
+                        <img *ngIf="!logoUrl" class="card-img-top img-fluid" src="http://www.lebenshilfe-sz.de/wp-content/uploads/2017/01/noimg.jpg" alt="{{companyName.value}}">
+                        <a class="btn btn-floating halfway-fab bg-success"><i class="ft-check"></i></a>
+                    </div>
+                  <div class="card-block">
+                    <h5 class="card-text-muted">{{ category.value }}</h5>
+                    <p class="card-text-muted">{{ description.value }}</p>
+                    <a class="card-link text-muted"> <i class="ft-phone"></i> {{ phone.value }}</a><br>
+                    <a class="card-link text-muted"> <i class="ft-globe"></i> {{ website.value }}</a><br>
+                    <a class="card-link text-muted"> <i class="ft-map-pin"></i> {{ city.value}}, {{ country.value }}</a>
+                    
+                  </div>
+                </div>
+                <div class="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
+                  <!-- <span class="float-left">3 hours ago</span>
+                  <span class="float-right">
+                    <a href="javascript:void(0);" class="card-link">Read More <i class="fa fa-angle-right"></i></a>
+                  </span> -->
+                </div>
+              </div>
+        </div>
+
+      </div>
+  </section>

@@ -1,0 +1,63 @@
+<div class="row">
+		<div class="col-6">
+			<div class="content-header">My Channels</div>
+			<p class="content-sub-header">Target your experiences to the right audience</p>
+    </div>
+    <div class="col-6">
+    </div>
+	</div>
+<div class="row">
+      <div class="col-sm-12">
+          <div id="users-list" class="list-group position-relative">
+              <div class="users-list-padding">
+                    <a  *ngFor="let a of myAgents" (click)="openModal(customContent,a)"  class="list-group-item  border-right-1">
+                      <span class="media">
+                        <span class="avatar avatar-md avatar-busy">
+                          <img class="media-object d-flex mr-3 shadow-sm height-50 width-50 rounded-circle" src="{{a.logoUrl}}"
+                            alt="Generic placeholder image">
+                          <i></i>
+                        </span>
+                        <div class="media-body">
+                          <h6 class="list-group-item-heading"> <span class="font-weight-bold-200">{{ a.name}}</span>
+                            <span class="font-small-3 float-right ">{{ a.date.toDate() | date:'mediumDate'}}</span>
+                          </h6>
+                          <p class="list-group-item-text text-muted">
+                            <i class="ft-map-pin primary font-small-2"></i> {{ a.about }}
+                            <span class="float-right primary">
+                                <!-- <img class="media-object d-flex mr-3 bg-lighten-5" style="height: 20px; width: auto" title="Activity" src="{{a.activity}}" alt="activity"> -->
+                                <span class="font-small-3 float-right notification badge badge-pill badge-info white">{{ a.connectionStatus}}</span>
+                            </span>
+                          </p>
+                        </div>
+                      </span>
+                    </a>
+                  
+              </div>
+          </div> 
+      </div>
+  </div>
+
+ <!--Modal with custom class starts-->
+ <ng-template  #customContent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+      <span class="avatar avatar-md avatar-busy">
+        <img class="media-object d-flex mr-3 shadow-sm height-50 width-50 rounded-circle" src="{{mySelectedAgent.logoUrl}}"
+          alt="Generic placeholder image">
+        <i></i>
+      </span>
+      <h4 class="modal-title">{{mySelectedAgent.name}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <h5 class="modal-title">{{'Type: '+mySelectedAgent.about}}</h5>
+      <h5 class="modal-title">{{'Connection Status: '+mySelectedAgent.connectionStatus}}</h5>
+      <h5 class="modal-title">{{'Date Registered: '+mySelectedAgent.date.toDate() | date }}</h5>
+      <!-- <h5 class="modal-title">{{'Rates : '+status}}</h5> -->
+  </div>
+  <div  class="modal-footer">
+      <button type="button" class="btn btn-secondary btn-raised" (click)="c('Close click')">Close</button>
+  </div>
+  </ng-template>
+<!--Modal with custom class ends-->

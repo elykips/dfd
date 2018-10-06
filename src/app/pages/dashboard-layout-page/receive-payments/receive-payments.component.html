@@ -1,0 +1,80 @@
+
+<section id="text-alignment">
+  <div class="form-group">
+      <div class="col-md-12">
+          <!-- <label *ngIf="errorMessage" class="error">{{ errorMessage}}</label>
+          <label *ngIf="successMessage" class="success">{{ successMessage}}</label> -->
+
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="content-header text-center"><h4>Choose your preffered method to receive payments</h4> </div>
+    </div>
+</div>
+<div class="row">
+  <!-- <div class="col-12 mt-3 mb-1">
+    <div class="content-header">Choose your preferred payment method:</div>
+  </div> -->
+</div>
+<div class="row justify-content-center">  
+  <div class="col-lg-4 col-md-12">
+    <div class="card text-center">
+      <div class="card-body">
+        <a (click)="open(mobileMoney)">
+        <div class="card-block">
+          <i class="fa fa-mobile font-large-3"></i><br/><br/>
+          <p>Mobile Money</p> 
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-12">
+    <div class="card text-center">
+      <div class="card-body">
+        <a (click)="open(bank)">
+        <div class="card-block">
+          <i class="fa fa-bank font-large-3"></i><br/><br/>
+          <p>Bank</p>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!--Modal starts-->
+<ng-template #mobileMoney let-c="close" let-d="dismiss">
+<div class="modal-header">
+<h4 class="modal-title">Modal title</h4>
+<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<p>One fine body&hellip;</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary btn-raised" (click)="c('Close click')">Close</button>
+</div>
+</ng-template>
+
+<ng-template #bank let-c="close" let-d="dismiss">
+<div class="modal-header">
+<h4 class="modal-title">Modal title</h4>
+<button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<p>One fine body&hellip;</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary btn-raised" (click)="c('Close click')">Close</button>
+</div>
+</ng-template>
+<!--Modal ends-->

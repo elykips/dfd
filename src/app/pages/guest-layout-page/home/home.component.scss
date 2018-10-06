@@ -1,0 +1,36 @@
+
+#canvas-basic {
+    position: fixed;
+    display: block;
+    height: 100vh;
+    width: 100%;
+}
+
+.pt-max {
+    padding-top: 12%;
+}
+
+.pt-10 {
+    padding-top: 7%;
+}
+
+.banner-area {
+    background-image: url('./../../../../assets/img/img-parallax.png'); 
+    background-attachment: scroll;
+    background-color: black !important;
+    background-size: cover;
+    background-position: center;
+    width: 100% !important;
+    max-height: 700px !important;
+    min-height: 300px !important;
+    top: 0;
+}
+
+.parallax {
+    background-image: url('./../../../../assets/img/img-parallax.png');
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    width: 100% !important;
+    height: auto;
+}

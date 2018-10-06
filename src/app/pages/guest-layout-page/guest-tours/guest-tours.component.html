@@ -1,0 +1,42 @@
+  
+<section id="basic-examples">
+	<div class="row">
+		<div class="col-12 mt-3 mb-1">
+			<div class="content-header">Tours</div>
+			<p class="content-sub-header">My Authentic African Experiences</p>
+		
+			
+		</div>
+	</div>
+
+	<div class="row row match-height" > 
+    <div class="col-md-3" *ngFor="let t of guestTours">
+		<a  routerLink="#">
+			<div class="card">
+			<div class="card-body">
+				<div class="card-img">
+				<img class="img-fluid" [src]="t.logoUrl" alt="{{t.name}}">
+				<h4 class="card-title text-lowercase">{{t.name}}</h4>
+				
+				<a  class="btn btn-floating halfway-fab btn-medium bg-success"><i class="ft-check"></i></a>
+				</div>
+				<div class="card-block text-dark">
+				<p class="card-text-muted">{{t.category}} </p>
+				<p class="card-text text-muted">{{t.description  | slice:0:50}}...</p>
+				<!-- <p class="card-text text-dark"> {{t.price}}</p> -->
+				</div>
+			</div>
+				<div class="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
+				<div class="row">
+					<a  class="card-text text-dark">{{ t.userId}}<i></i></a>
+					<div    class="col-md-12 float-center avatar avatar-md avatar-busy">
+						<!-- <a  routerLink="#"><img alt="{{t.name}}" title="{{t.name}}" class="media-object d-flex mr-3 shadow-sm height-50 width-50 rounded-circle" src="{{ t.logoUrl}}"><i></i>
+						</a> -->
+					</div>
+			</div>
+					</div>
+			</div>
+		</a>
+    </div>
+	</div>
+</section>

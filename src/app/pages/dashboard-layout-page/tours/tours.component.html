@@ -1,0 +1,54 @@
+<section id="basic-examples">
+	<div class="row">
+		<div class="col-6">
+			<div class="content-header">Tours</div>
+			<p class="content-sub-header">My Authentic African Experiences</p>
+		</div>
+		<div class="col-6"><br/>
+				<!-- <a routerLink="#"><i class="ft-plus-circle success align-middle"></i></a> -->
+				<a routerLink="/dashboard/new-tour" class="btn btn-raised btn-light round btn-min-width mr-1 mb-1"><i class="ft-plus-circle"></i> Add Tour</a>
+				<!-- <button type="button" class="btn btn-raised btn-success btn-min-width mr-1 mb-1"><i class="ft-plus-circle"></i> Success</button> -->
+			</div>
+	</div>
+
+	<div class="row row match-height" *ngFor="let provider of tourOperator">
+    <div class="col-md-4" *ngFor="let t of tourDetails">
+	<a (click)="sendTourObjectToDetailsPage(t.id)">
+		<div class="card" >
+		<div class="card-body">
+			<div class="card-img bg-black">
+            <img style="opacity: 0.5" class="img-fluid" [src]="t.logoUrl" alt="{{t.name}}">
+			<h4 class="card-title text-lowercase">{{t.name}}</h4>
+			
+			
+            <span class="btn btn-floating halfway-fab btn-medium bg-success"><i class="ft-check"></i></span>
+			</div>
+			<div class="card-block text-dark">
+            <p class="card-text-muted">{{t.category  | slice:0:10}} </p>
+			<p class="card-text text-muted">{{t.description  | slice:0:62}}...</p>
+			<!-- <p class=" card-text-muted ">*{{t.extras}} </p> -->
+			<p class="card-text text-dark"> {{t.price | currency}}</p>
+			</div>
+		</div>
+			<div class="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
+			<div class="row">
+				<div class="col-md-12 float-center avatar avatar-md avatar-busy">
+					<a routerLink="/dashboard/my-profile"><img alt="{{provider.name}}" title="{{provider.name}}" class="media-object d-flex mr-3 shadow-sm height-50 width-50 rounded-circle" src="{{provider.logoUrl}}"><i></i>
+					</a>
+					
+				</div>
+				<!-- <div class="col-md-8 float-right align-middle">
+						<a routerLink="/dashboard/my-profile" class="card-text">{{provider.name | slice:0:20}}</a><br/>
+						<a routerLink="/dashboard/my-profile" class="card-text text-muted"> {{provider.ratting}}</a>
+						
+			</div> -->
+				<!-- <span class="float-left badge bg-info white"> USD{{t.price}}</span> -->
+				<!-- <span class="float-right"></span> -->
+		</div>
+				</div>
+	</div>
+	</a>
+	</div>
+	
+	</div>
+</section>

@@ -1,0 +1,26 @@
+<!--Basic DataTable Starts-->
+<section id="basic-datatable" class="mb-3">
+  <div class="row">
+      <div class="col-12">
+          <div class="content-header">Basic DataTable</div>
+          <p class="content-sub-header">A feature-rich yet lightweight data-table crafted for Angular4 and beyond!</p>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-12">
+          <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'/>
+          <div class="card">
+              <div class="card-body">
+                <div class="card-block">
+                  <div class="card-header"></div>
+                    <ngx-datatable #table class="bootstrap" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns" [columnMode]="'force'"
+                    [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [reorderable]="reorderable" [limit]="10"   [selected]="selected" [rows]='rows' [selectionType]="'cell'" (select)="onSelect($event)"
+                    (activate)="onActivate($event)">
+                    </ngx-datatable>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+</section>
+<!--Basic DataTable Ends-->

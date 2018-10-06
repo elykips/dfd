@@ -1,0 +1,44 @@
+<section id="user-profile">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card profile-with-cover">
+              <div id="bg-image" class="card-img-top align-middle img-fluid bg-cover height-300" [ngStyle]="{'background-image': 'url('+mySelectedAgent.logoUrl+')'}"></div>
+              <div class="media profil-cover-details row">
+                  <div class="col-md-12">
+                      <div class="align-self-start halfway-fab pl-3 pt-2">
+                          <div class="text-left">
+                              <h3 class="card-title white"> {{mySelectedAgent.channel}}</h3>
+                              <p class="card-title white"> {{mySelectedAgent.location}}</p>
+                      
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<div class="row" matchHeight ="card">
+  <div class="col-md-8">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="card-block">
+            <div class="card-header">{{mySelectedAgent.channel }}</div>
+             {{mySelectedAgent.name}} {{mySelectedAgent.location}}<br/>
+             <button type="button"  class="btn bg-primary text-white" (click)="saveMyAgent(mySelectedAgent)">Add To My Channels</button>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <div class="card-block">
+         <img src="{{mySelectedAgent.bookingActivityImageUrl}}">
+         <p card-header>Booking Activity</p>
+        </div>
+      </div>
+    </div>
+</div>
+</div>

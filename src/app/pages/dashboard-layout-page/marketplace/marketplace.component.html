@@ -1,0 +1,45 @@
+
+  <div class="row">
+      <div class="col-6">
+        <div class="content-header">Online Travel Agencies</div>
+        <p class="content-sub-header">Access more than 1,100 travel agencies globally</p>
+      </div>
+      <div class="col-6">
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <div *ngIf="errorMessage || successMessage " class="form-group">
+            <div class="col-md-12">
+                <label *ngIf="errorMessage" class="error">{{ errorMessage}}</label>
+                <label *ngIf="successMessage" class="success">{{ successMessage}}</label>
+            </div>
+        </div>
+        <div id="users-list" class="list-group position-relative">
+            <div class="users-list-padding">
+                  <a  *ngFor="let channel of channels" (click)="saveAgentToFavourites(channel)"  class="list-group-item  border-right-1">
+                    <span class="media">
+                      <span class="avatar avatar-md avatar-busy">
+                        <img class="media-object d-flex mr-3 shadow-sm height-50 width-50 rounded-circle" src="{{channel.logoUrl}}"
+                          alt="Generic placeholder image">
+                        <i></i>
+                      </span>
+                      <div class="media-body">
+                        <h6 class="list-group-item-heading"> <span class="font-weight-bold-200">{{ channel.channel }}</span>
+                          <span class="font-small-3 float-right primary">9:04 PM</span>
+                        </h6>
+                        <p class="list-group-item-text text-muted">
+                          <i class="ft-map-pin primary font-small-2"></i> {{ channel.location }}
+                          <span class="float-right primary">
+                                <img class="media-object d-flex mr-3 bg-lighten-5" style="height: 20px; width: auto" title="Activity" src="{{ channel.bookingActivityImageUrl }}" alt="activity">
+                          </span>
+                        </p>
+                      </div>
+                    </span>
+                  </a>
+                
+            </div>
+        </div> 
+    </div>
+</div>
+

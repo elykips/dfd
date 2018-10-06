@@ -1,0 +1,97 @@
+<section id="user-profile">
+    <div class="row">
+        <div class="col-12">
+            <div class="card profile-with-cover">
+                <div class="bg-black">
+                <div id="bg-image" class="card-img-top align-middle img-fluid bg-cover bg-black height-350" [ngStyle]="{'background-image': 'url('+tourDetails.logoUrl+')', 'opacity':'0.5'}"></div>
+                </div>
+                <div class="media profil-cover-details row">
+                    <div class="col-md-12">
+                        <div class="align-self-start halfway-fab pl-3 pt-2">
+                            <div class="text-left">
+                                <h3 class="card-title white"> {{tourDetails.name}}</h3>
+                                <p class="card-title white"> {{tourDetails.category}}</p>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="basic-tabs-components">
+    <div class="row match-height">
+        <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                    <div class="card-block">
+                        <ngb-tabset>
+                            <ngb-tab>
+                            <ng-template ngbTabTitle>Overview</ng-template>
+                            <ng-template ngbTabContent><p>{{tourDetails.description}}</p></ng-template>
+                            </ngb-tab>
+                            <ngb-tab>
+                            <ng-template ngbTabTitle>Itinerary</ng-template>
+                            <ng-template ngbTabContent>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-block">
+                                            <div class="media-list">
+                                                <div class="media pb-3" *ngFor="let iten of tourDetails.itinerary">
+                                                    <span class="avatar avatar-md mr-2" >
+                                                        <span class="media-object rounded-circle text-circle d-flex mr-2 justify-content-center align-items-center bg-info white height-50 width-50">{{ iten.activityDate }}</span>
+                                                    </span>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">{{ iten.activity}}</h4>
+                                                        <p>{{ iten.activityDescription}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab>
+                            <ng-template ngbTabTitle>Price</ng-template>
+                            <ng-template ngbTabContent><p> {{tourDetails.price | currency}}</p></ng-template>
+                            </ngb-tab>
+                            <ngb-tab>
+                            <ng-template ngbTabTitle>Includes</ng-template>
+                            <ng-template ngbTabContent>
+                                    <div class="row">
+                                            <div class="col-md-6 float-left ">
+                                                <h5> Included</h5>
+                                                <ul>
+                                                    <li>{{tourDetails.extras}} </li>
+                                                                                                   </ul>
+                                            </div>
+                                            <div class="col-md-6 float-right">
+                                                    <h5> Excluded</h5>
+                                                <p class="card-text">{{tourDetails.excluded}}</p>
+                                            </div>
+                                    </div>
+                            </ng-template>
+                            </ngb-tab>
+                            
+                        </ngb-tabset>
+                    </div>
+            </div>
+        </div>
+        </div>
+        <!-- <div class="col-md-4">
+                <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <div class="card-body">
+                        <div class="card-block">
+                            <p>WeW</p>
+                        </div>
+                        </div>
+                    </div>
+        </div> -->
+    </div>
+</section>

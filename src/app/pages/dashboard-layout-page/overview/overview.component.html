@@ -1,0 +1,99 @@
+<div class="row" matchHeight="card">
+    <div class="col-xl-3 col-lg-6 col-12">
+      <a routerLink="/dashboard/bookings">
+        <div class="card">
+          <div class="card-body">
+            <div class="px-3 py-3">
+              <div class="media">
+                <div class="media-body text-left">
+                  <h3 class="mb-1 success">1</h3>
+                  <span>New Booking</span>
+                </div>
+                <div class="media-right align-self-center">
+                  <i class="icon-calendar info font-large-2 float-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <a routerLink="/dashboard/my-channels">
+        <div class="card">
+        <div class="card-body">
+          <div class="px-3 py-3">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 success">5</h3>
+                <span>My Agents</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="icon-globe info font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <a routerLink="/dashboard/payments">
+        <div class="card">
+        <div class="card-body">
+          <div class="px-3 py-3">
+            <div class="media">
+              <div class="media-body text-left">
+                <h3 class="mb-1 success">$1500</h3>
+                <span>Revenue</span>
+              </div>
+              <div class="media-right align-self-center">
+                <i class="fa fa-money info font-large-2 float-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-xl-3 col-lg-6 col-12">
+      <a routerLink="/dashboard/my-subscription">
+        <div class="card">
+          <div class="card-body">
+            <div class="px-3 py-3">
+              <div class="media">
+                <div class="media-body text-left">
+                  <h3 class="mb-1 success">Trial</h3>
+                  <span>Subscription</span>
+                </div>
+                <div class="media-right align-self-center">
+                  <i class="icon-check info font-large-2 float-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="row" matchHeight ="card">
+      <div class="col-xl-4 col-lg-12">
+          <div *ngIf="agents" class="card">
+              <div class="card-header">Channels with the most bookings</div>
+              <div class="card-body">
+                  <div class="card-block">
+
+                      <div *ngFor="let a of agents" class="media mb-3">
+                          <img alt="96x96" class="media-object d-flex mr-3 align-self-center bg-primary height-50 width-50 rounded-circle shadow-sm" src="{{ a.logoUrl }}">
+                          <div class="media-body">
+                              <h4 class="font-medium-1 mt-2 mb-0">{{ a.channel }}</h4>
+                          </div>
+                          <!-- <img alt="96x96" class="media-object d-flex mr-3 align-self-center  height-50 width-50" src="{{ a.bookingActivityImageUrl }}"> -->
+                          <span class="notification badge badge-pill badge-danger">{{ a.bookings}}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
